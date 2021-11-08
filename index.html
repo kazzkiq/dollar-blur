@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/effect.css">
+  <title>Dollar Blur Test</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .dollar {
+      width: 456px;
+      height: 194px;
+      background: #ebeec7;
+      background: rgba(235, 238, 199, 1);
+      transition: all 0.5s linear;
+    }
+
+    .dollar::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      color: #998;
+      /*
+      The box shadow has been added as an external file
+      because its content is too large to be in the editor.
+      */
+    }
+
+    .dollar:hover {
+      filter: blur(100px);
+    }
+
+    .dollar--png {
+      box-shadow: none;
+      background: url(/dollar.png) no-repeat rgba(235, 238, 199, 1);
+    }
+
+    .dollar--png::before {
+      box-shadow: none;
+    }
+
+    small {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dollar Blur Test</h1>
+  <p>Which dollar animates faster? Box-shadow or bitmap image?</p>
+  <h2>Box-shadow</h2>
+  <div class="dollar"></div>
+  <h2>Bitmap (PNG)</h2>
+  <div class="dollar dollar--png"></div>
+  <small>Credits for the box-shadow Dollar Bill to: <a href="https://codepen.io/alvaromontoro/pen/xxwqVxa">Alvaro Montoro</a></small>
+</body>
+</html>
