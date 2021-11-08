@@ -17,7 +17,16 @@
       box-sizing: border-box;
     }
 
+    input:checked + .dollar {
+      display: block;
+    }
+
+    input:checked + .dollar-bitmap {
+      display: block;
+    }
+
     .dollar {
+      display: none;
       width: 456px;
       height: 194px;
       background: #ebeec7;
@@ -38,17 +47,18 @@
       */
     }
 
-    .dollar:hover {
-      filter: blur(100px);
-    }
-
-    .dollar--png {
-      box-shadow: none;
+    .dollar-bitmap {
+      display: none;
+      width: 456px;
+      height: 194px;
+      background: #ebeec7;
       background: url(dollar.png) no-repeat rgba(235, 238, 199, 1);
+      transition: all 0.5s linear;
     }
 
-    .dollar--png::before {
-      box-shadow: none;
+    .dollar:hover,
+    .dollar-bitmap:hover {
+      filter: blur(100px);
     }
 
     small {
@@ -60,9 +70,11 @@
   <h1>Dollar Blur Test</h1>
   <p>Which dollar animates faster? Box-shadow or bitmap image?</p>
   <h2>Box-shadow</h2>
+  <input type="checkbox" name="show-box-shadow" checked>
   <div class="dollar"></div>
   <h2>Bitmap (PNG)</h2>
-  <div class="dollar dollar--png"></div>
+  <input type="checkbox" name="show-bitmap" checked>
+  <div class="dollar-bitmap"></div>
   <small>Credits for the box-shadow Dollar Bill to: <a href="https://codepen.io/alvaromontoro/pen/xxwqVxa">Alvaro Montoro</a></small>
 </body>
 </html>
